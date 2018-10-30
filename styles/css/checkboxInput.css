@@ -1,0 +1,178 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  background-color: #ff7b73;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.section-form, .form, .c-label {
+  width: 20em;
+  height: 6.25em;
+}
+
+.section-form {
+  position: relative;
+  font-weight: 700;
+}
+
+.form, .c-label {
+  position: absolute;
+  -webkit-border-radius: 6.25em;
+  -moz-border-radius: 6.25em;
+  border-radius: 6.25em;
+  background-color: #ffffff;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.form {
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.625em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+}
+
+.c-label {
+  color: #ff7b73;
+  top: 0;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-label:before {
+  font-size: 1.75em;
+  content: attr(data-title);
+}
+
+.input, .btn {
+  font: inherit;
+  border: 0;
+  outline: 0;
+  -webkit-border-radius: 5em;
+  -moz-border-radius: 5em;
+  border-radius: 5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.input, .btn-label {
+  font-size: 1.75em;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -o-transition: 0s;
+  -ms-transition: 0s;
+  transition: 0s;
+}
+
+.input {
+  color: #ffcccc;
+  height: 100%;
+  width: 100%;
+  padding: 0 0.714em;
+}
+
+.input::placeholder {
+  color: currentColor;
+}
+
+.input:required:valid {
+  color: #ff7b73;
+}
+
+.input:required:valid + .btn-label {
+  color: #ffffff;
+}
+
+.input:required:valid + .btn-label::before {
+  pointer-events: initial;
+}
+
+.btn-label {
+  color: #ffaea9;
+  height: 100%;
+  width: auto;
+}
+
+.btn-label::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.btn {
+  color: inherit;
+  padding: 0;
+  height: 100%;
+  width: 5em;
+  background-color: #ff7b73;
+}
+
+.c-checkbox {
+  display: none;
+}
+
+.c-checkbox:checked + .section-form .form {
+  width: 37.5em;
+}
+
+.c-checkbox:checked + .section-form .c-label {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+.c-checkbox:checked + .section-form .input, .c-checkbox:checked + .section-form .btn-label {
+  -webkit-transition: 0.2s 0.1s;
+  -moz-transition: 0.2s 0.1s;
+  -ms-transition: 0.2s 0.1s;
+  -o-transition: 0.2s 0.1s;
+  transition: 0.2s 0.1s;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.c-checkbox:not(:checked) + .section-form .input:required:valid ~ .c-label::before, .c-checkbox:checked + .section-form .input:required:valid ~ .c-label::before {
+  content: 'Thank You! \1F60A';
+}
+
+.c-checkbox:not(:checked) + .section-form .input:required:valid ~ .c-label {
+  pointer-events: none;
+  cursor: default;
+}
